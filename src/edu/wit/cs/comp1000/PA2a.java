@@ -7,7 +7,7 @@ public class PA2a {
 	public static void main(String[] args) {
 	
 		Scanner scanner = new Scanner(System.in);
-		System.out.printf("Please enter 5 whole numbers:%n");
+		System.out.printf("Enter five whole numbers: ");
 		double a = scanner.nextDouble();
 		double b = scanner.nextDouble();
 		double c = scanner.nextDouble();
@@ -27,7 +27,8 @@ public class PA2a {
 		sumnegative = sumnegative + a;
 		}
 		else {
-		a = 0;
+		a = 0;	
+		countnegative++;
 		}
 		if (b > 0) {
 		countpositive++;
@@ -39,6 +40,7 @@ public class PA2a {
 		}
 		else {
 		b = 0;
+		countnegative++;
 		}
 		if (c > 0) {
 		countpositive++;
@@ -50,6 +52,7 @@ public class PA2a {
 		}
 		else {
 		c = 0;
+		countnegative++;
 		}
 		if (d > 0) {
 		countpositive++;
@@ -61,6 +64,7 @@ public class PA2a {
 		}
 		else {
 		d = 0;
+		countnegative++;
 		}
 		if (e > 0) {
 		countpositive++;
@@ -72,18 +76,73 @@ public class PA2a {
 		}
 		else {
 		e = 0;
+		countnegative++;
 		}
 		
 		
 		
 		double totalavg = ((a + b + c + d + e)/5);
-		System.out.printf("The average all 5 of the entered numbers is %.2f%n", totalavg);
-		System.out.printf("The sum of the %.0f positive numbers is %.0f%n", countpositive, sumpositive);
-		System.out.printf("The sum of the %.0f negative numbers is %.0f%n", countnegative, sumnegative);
-		double positiveavg = (sumpositive / countpositive);
-		System.out.printf("The average of the %.0f positive numbers is %.2f%n", countpositive, positiveavg);	
-		double negativeavg = (sumnegative / countnegative);
-		System.out.printf("The average of the %.0f negative numbers is %.2f%n", countnegative, negativeavg);
+		double positiveavg;
+		double negativeavg;
+		double totalsum = (a + b + c + d + e);
+		
+		if (a < 0 && b < 0 && c < 0 && d < 0 && e < 0) {
+			positiveavg = 0.00;
+		}
+		else {
+		positiveavg = (sumpositive / countpositive);
+		}
+		if (a > 0 && b > 0 && c > 0 && d > 0 && e > 0) {
+		negativeavg = 0.00;
+		}
+		else {
+		negativeavg = (sumnegative / countnegative);
+		}
+		
+		if (countpositive == 1) {
+			System.out.printf("The sum of the 1 positive number: %.0f%n", sumpositive);
+		}
+		else {
+			System.out.printf("The sum of the %.0f positive numbers: %.0f%n", countpositive, sumpositive);
+		}
+		
+		
+		if (countnegative == 1) {
+			System.out.printf("The sum of the 1 non-positive number: %.0f%n", sumnegative);
+		}
+		else {
+		System.out.printf("The sum of the %.0f non-positive numbers: %.0f%n", countnegative, sumnegative);
+		}
+		
+		
+		System.out.printf("The sum of the 5 numbers: %.0f%n", totalsum);
+		
+		
+		if (countpositive == 0) {
+			System.out.printf("The average of the 0 positive numbers: 0.00%n");
+		}
+		else if (countpositive == 1) {
+			System.out.printf("The average of the 1 positive number: %.2f%n", positiveavg);
+		}
+		else {
+		System.out.printf("The average of the %.0f positive numbers: %.2f%n", countpositive, positiveavg);	
+		}
+		
+		if (countnegative == 1) {
+			System.out.printf("The average of the 1 non-positive number: %.2f%n", negativeavg);	
+		}
+		else {
+		System.out.printf("The average of the %.0f non-positive numbers: %.2f%n", countnegative, negativeavg);
+		}
+		
+		
+		System.out.printf("The average of the 5 numbers: %.2f%n", totalavg);
+	
+
+		
+
+	
+		
 		scanner.close();
 	}
 
